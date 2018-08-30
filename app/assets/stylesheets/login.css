@@ -1,0 +1,222 @@
+.head1
+{
+	height: 5%;
+	width: 100%;
+	background-color: #1ED177;
+	position: fixed;
+    	top:0;
+	left: 0;
+    	
+    	
+}
+.head2
+{
+	width: 100%;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: inset;
+	position: fixed;
+	left: 0;
+	top: 6%;
+}
+h1
+{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 20%
+	font-style: normal;
+	font-weight: bold;
+	text-align: justify;	
+	color: #1ED177;
+	text-align: center;
+}
+h2
+{
+	font-family: "Times New Roman", Times, serif;
+	font-style: normal;
+	font-weight: bold;
+	text-align: justify;	
+	color: #1ED177;
+}
+
+.formalign
+{	
+	width: 420px;
+	height: 420px;
+	color: #fff;
+	position:fixed;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	padding: 40px 30px;
+}
+input[type=text]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    resize: vertical;
+    font-size: 15px;
+}
+.login-box p{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.login-box input
+{
+	width: 100%;
+	margin-bottom: 20px;
+}
+input[type=password]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+.inp{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+.inp1{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.chk{
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: green;
+    
+}
+.rad{
+   
+    font-size: 5px;
+    color: green;
+}
+input[type=submit]{
+    
+    height: 40px;
+    background: #1ED177;
+    border: 1px solid #1ED177;
+    border-radius: 4px;
+    text-color: #fff;
+    resize: vertical;
+    margin-bottom: 15px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;	
+    color: #fff;
+}
+
+.butt{   
+    height: 40px;
+    width: 100px;
+    background: #1ED177;
+    border: 1px solid #1ED177;
+    border-radius: 4px;
+    text-color: #fff;
+    resize: vertical;
+    margin-bottom: 15px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;	
+    color: #fff;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: #1ED177
+}
+
+a:visited {
+    text-decoration: none;
+    color: #176F37; 
+}
+
+a:hover {
+    text-decoration: none;
+    color: #26E9C9;
+}
+
+a:active {
+    text-decoration: none;
+    color: #1ED177
+}
+
+.roles{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    font-style: normal;
+    color: #1ED177;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+#employees tr:nth-child(even){background-color: #f2f2f2;}
+
+#employees tr:hover {background-color: #ddd;}
+
+#employees th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+#employees {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#employees td, #employees th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}

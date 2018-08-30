@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><% title "Employees List Page" %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+
+      <li class="active"><%= link_to 'My Home', controller: "employees", action: "index" %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+	<%= link_to"sign out",destroy_user_session_path, method: :delete ,input_html: { class: 'glyphicon glyphicon-log-in' }  %>
+      </li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <table id = "employees">
+  <tr>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Role</th>
+    <th>Update</th>
+  </tr>
+ 
+  <% @employeeDetails.each do |employee| %>
+    <tr>
+      <td><%= employee.firstName %></td>
+      <td><%= employee.lastName %></td>
+
+      <% if(employee.role == 1) %>
+		<td> Admin </td>
+      <% else %>
+		<td> User </td>
+      <% end %>
+      <td><%= link_to 'Edit', controller: "employees", action: "edit", id: employee.id %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</body>
+</html>
+

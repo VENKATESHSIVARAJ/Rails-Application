@@ -1,0 +1,33 @@
+<html>
+
+	<head>
+		<title><% title "Employees Details Page" %></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="login.css">
+	</head>
+
+	<body>
+		<div class="head1"> 
+		</div>
+		<div class="head2">
+			<h1> Ruby on Rails Application Demo </h1>
+		</div>
+		<div class="formalign">
+				<h2>Employee Details</h2>
+				<%= simple_form_for Employee.new do |f| %>
+				    <%= f.input :firstname, placeholder: 'FirstName', input_html: { class: 'inp' } %>
+				    <%= f.input :lastname, placeholder: 'LastName',input_html: { class: 'inp' }  %>
+				   
+				  <div class="butt">
+				    <%= f.button :submit, "Submit" %>
+				  </div>
+				<% end %>
+				
+		</div>
+	</body>
+
+</html>
+
+
+

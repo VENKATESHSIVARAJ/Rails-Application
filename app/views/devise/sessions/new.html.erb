@@ -1,0 +1,57 @@
+<html>
+
+	<head>
+		<title> <% title "Login Page" %> </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="login.css">
+	</head>
+
+	<body>
+		<div class="head1"> 
+		</div>
+		<div class="head2">
+			<h1> Ruby on Rails Application Demo </h1>
+		</div>
+		<div class="formalign">
+
+				
+				<h2>Login</h2>
+				<% @tout = 0 %>
+				<% flash.each do |key, value| %>
+					<% if(key != "timedout") %>
+	 				 <div style = "color: #1ED177;" class="alert alert-<%= key %>">
+						    <ul>
+						      <li>
+						        <%= value %>
+						      </li>
+						    </ul>
+					  </div>
+					<% end %>
+					<% if(key == "timedout") %>
+						<% @tout = 1 %>
+					<% end %>
+				 <% end %>
+				
+				<%= simple_form_for(resource, as: resource_name, url: 		session_path(resource_name)) do |f| %>
+				    <%= f.input :email, placeholder: 'Email',error: 'Email id is mandatory', input_html: { class: 'inp' } %>
+				    <%= f.input :password, placeholder: 'Password',input_html: { minlength: 10, maxlength:15, class: 'inp' }  %>
+				    <%= f.input :remember_me, wrapper_html: { class: 'chk' }, inline_label: 'remember me', :as => :boolean %>
+				
+				  <div class="butt">
+				    <%= f.button :submit, "Log in" %>
+				  </div>
+				  
+				<% end %>
+					<% if(@tout == 0) %>
+						<div>	
+							<h3>			
+								<a style="padding-right:50px" href="password/new">Forget Password</a>
+								<a href="sign_up">Sign Up</a>
+							</h3>
+						</div>
+					<% end %>
+		</div>
+	</body>
+
+</html>

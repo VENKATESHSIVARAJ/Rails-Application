@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+
+      <li class="active"><%= link_to 'My Home', controller: "employees", action: "index" %></li>
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+	<%= link_to"sign out",destroy_user_session_path, method: :delete ,input_html: { class: 'glyphicon glyphicon-log-in' }  %>
+      </li>
+    </ul>
+  </div>
+</nav>
+  	<div style="width: 420px;height: 420px;position:fixed;top:50%;left:50%;transform: translate(-50%, -50%);box-sizing: border-box;padding: 40px 30px; ">
+
+		<% flash.each do |key, value| %>
+				<% if(key == "alert") %> 
+	 				 <div style = "color: #FF0000;" class="alert alert-<%= key %>">   
+						   <ul>
+						      <li>
+							
+						        	<%= value %>
+							
+						      </li>
+						    </ul>
+					  </div>
+				<% end %>
+		 <% end %>
+
+		<% if(@employee.user_id == current_user.id) %>
+				<%= simple_form_for(@employee, controller: "employees", action: "update") do |f| %>
+				    	<%= f.input :firstname %>
+				    	<%= f.input :lastname %>
+				    <%= f.button :submit %>
+				<% end %>
+		<% elsif( current_user.roles_mask == 1) %>
+			<%= form_tag({controller: "employees", action: "update"}, method: "put") do |f| %>
+				<%= label_tag(:q, "FirstName") %>
+  				<%= text_field_tag(:firstname, @employee.firstName) %>
+				<%= label_tag(:q, "LastName") %>
+  				<%= text_field_tag(:lastname, @employee.lastName) %>
+				<% if(@employee.role == 1) %>
+					<div><%= radio_button_tag 'Role', 1, true %> <%= label_tag(:q, "Admin") %> </div>
+					<div><%= radio_button_tag 'Role', 2, false %> <%= label_tag(:q, "User") %> </div>
+				<% else %>
+					<div><%= radio_button_tag 'Role', 1, false %> <%= label_tag(:q, "Admin") %> </div>
+					<div><%= radio_button_tag 'Role', 2, true %> <%= label_tag(:q, "User") %> </div>
+				<% end %>
+  				<%= submit_tag("Update") %>
+			<% end %>
+			
+		<% else %>
+			
+		<% end %>
+
+	</div>		
+			
+</body>
+</html>

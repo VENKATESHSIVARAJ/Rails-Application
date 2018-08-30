@@ -1,0 +1,44 @@
+<html>
+
+	<head>
+		<title>Forget Password</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="login.css">
+	</head>
+
+	<body>
+		<div class="head1"> 
+		</div>
+		<div class="head2">
+			<h1> Ruby on Rails Application Demo </h1>
+		</div>
+		<div class="formalign">
+
+			<h2>Change your password</h2>
+			<%= devise_error_messages1! %>
+			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+			  <%= devise_error_messages! %>
+			  <%= f.hidden_field :reset_password_token %>
+
+			  <div class="field">
+			    <%= f.label :password, "New password" %><br />
+			    <% if @minimum_password_length %>
+			      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+			    <% end %>
+			    <%= f.password_field :password, placeholder: 'Password', autofocus: true, autocomplete: "off" %>
+			  </div>
+
+			  <div class="field">
+			    <%= f.label :password_confirmation, "Confirm new password" %><br />
+			    <%= f.password_field :password_confirmation, placeholder: 'Change Password', autocomplete: "off" %>
+			  </div>
+
+			  <div class="actions">
+    			    <%= f.submit "Change my password" %>
+			  </div>
+			<% end %>
+		</div>
+	</body>
+
+</html>

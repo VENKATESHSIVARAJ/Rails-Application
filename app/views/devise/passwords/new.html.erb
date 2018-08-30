@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+		<title><% title "Forget Password Page" %> </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="login.css">
+	</head>
+
+	<body>
+		<div class="head1"> 
+		</div>
+		<div class="head2">
+			<h1> Ruby on Rails Application Demo </h1>
+		</div>
+		<div class="formalign">
+
+
+			<h2>Forgot your password?</h2>
+
+			<%= devise_error_messages1! %>			
+
+			<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
+
+			  <div class="field">
+				    <%= f.input :email, placeholder: 'Email', input_html: { class: 'inp' } %>
+			  </div>
+
+			  <div class="butt">
+				    <%= f.button :submit, "Send me reset password instructions" %>
+			  </div>
+			<% end %>
+
+
+		</div>
+	</body>
+
+</html>
+
+

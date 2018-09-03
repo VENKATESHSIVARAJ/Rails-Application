@@ -81,17 +81,23 @@ class EmployeesController < ApplicationController
 	employee.firstname = params[:firstname]
 	employee.lastname = params[:lastname]
 	user.roles_mask = params[:Role]
+    if(user.roles_mask != nil)
       if employee.save && user.save
 	@employee = Employee.find_by user_id: current_user.id
 	render "index"
-        #format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @employee }
       else
 	flash[:alert] = "Invalid data"
 	render "edit"
-        #format.html { render :edit }
-        #format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
+    else
+	if employee.save
+	@employee = Employee.find_by user_id: current_user.id
+	render "index"
+      else
+	flash[:alert] = "Invalid data"
+	render "edit"
+      end
+    end
   end
 
   # DELETE /employees/1
